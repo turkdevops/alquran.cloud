@@ -73,18 +73,18 @@
 	</div>
 	<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
 	<audio id="quranPlayer" controls="controls" class="align-right rt">
-        <source id="activeAyah" src="https://cdn.islamic.network/quran/audio/128/ar.alafasy/1.mp3" title="1" type="audio/mp3"/>
+        <source id="activeAyah" src="https://cdn.islamic.network/quran/audio/128/ar.alafasy-2/1.mp3" title="1" type="audio/mp3"/>
 	</audio>
 	</div>
 </div>
 </div>
 </div>
 <?php if ($dualAudio == 'true') { ?>
-<script src="/public/js/jquery.mediaplayer-ar-en.js?v=27"></script>
+<script src="/public/js/jquery.mediaplayer-ar-en.js?v=29"></script>
 <?php } else { ?>
-<script src="/public/js/jquery.mediaplayer.js?v=27"></script>
+<script src="/public/js/jquery.mediaplayer.js?v=29"></script>
 <?php } ?>
-<script src="/public/js/jquery.quran.js?v=6"></script>
+<script src="/public/js/jquery.quran.js?v=7"></script>
 <script>
     var surahChangers = <?php echo json_encode($surahChangers); ?>;
 $(function() {

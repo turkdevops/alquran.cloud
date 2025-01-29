@@ -20,6 +20,15 @@ spec:
       labels:
         app: alquran-cloud-app
     spec:
+      topologySpreadConstraints:
+        - maxSkew: 1
+          topologyKey: kubernetes.io/hostname
+          whenUnsatisfiable: ScheduleAnyway
+      tolerations:
+        - key: kubernetes.azure.com/scalesetpriority
+          operator: "Equal"
+          value: spot
+          effect: NoSchedule
       containers:
       - name: apache-exporter-sidecar
         image: lusotycoon/apache-exporter
@@ -36,7 +45,7 @@ spec:
           - containerPort: 9117
             protocol: TCP
       - name: alquran-cloud-app
-        image: islamicnetwork/alquran.cloud:$COMMIT_TAG
+        image: ghcr.io/islamic-network/alquran.cloud:$COMMIT_TAG
         env:
           - name:  API_BASE_URI
             value: http://alquran-cloud-api/v1/
